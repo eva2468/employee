@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="test.xsl"?>
+<Railway xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:noNamespaceSchemaLocation="NewXMLSchema.xsd">
+  <Employee>
+    <Name>ABHIJITH</Name>
+    <Age>17</Age>
+    <Salary>30000</Salary>
+    <Station>Chennai</Station>
+  </Employee>
+  <Employee>
+    <Name>ANUGRAH</Name>
+    <Age>33</Age>
+    <Salary>45000</Salary>
+    <Station>Bengaluru</Station>
+  </Employee>
+  <Employee>
+    <Name>SIDHARTH</Name>
+    <Age>32</Age>
+    <Salary>36000</Salary>
+    <Station>Manglore</Station>
+ 	</Employee>
+ 	<Employee>
+    <Name>SURAJ</Name>
+    <Age>30</Age>
+    <Salary>46000</Salary>
+    <Station>Mumbai</Station>
+ 	</Employee>
+ 
+ 	<Train>
+ 	<Train_no>213473</Train_no>
+ 	<Train_Name>Manglore EXP</Train_Name>
+ 	<From>Bengaluru</From>
+ 	<To>Manglore</To>
+ 	<Arrival>09:00:00</Arrival>
+ 	<Departure>12:00:00</Departure>
+ 	<Fare>480</Fare>
+ 	</Train>
+ 	<Train>
+ 	<Train_no>213733</Train_no>
+ 	<Train_Name>Mumbai EXP</Train_Name>
+ 	<From>Bengaluru</From>
+ 	<To>Mumbai</To>
+ 	<Arrival>12:00:00</Arrival>
+ 	<Departure>09:00:00</Departure>
+ 	<Fare>780</Fare>
+ 	</Train>
+ 	<Train>
+ 	<Train_no>103343</Train_no>
+ 	<Train_Name>Kannur EXP</Train_Name>
+ 	<From>Manglore</From>
+ 	<To>Kannur</To>
+ 	<Arrival>18:00:00</Arrival>
+ 	<Departure>21:00:00</Departure>
+ 	<Fare>400</Fare>
+ 	</Train>
+ 	<Train>
+ 	<Train_no>213567</Train_no>
+ 	<Train_Name>Malabar EXP</Train_Name>
+ 	<From>Manglore</From>
+ 	<To>Trivandram</To>
+ 	<Arrival>06:00:00</Arrival>
+ 	<Departure>24:00:00</Departure>
+ 	<Fare>1050</Fare>
+ 	</Train>
+ 	
+ 	<Leave>
+ 	<Leave_id>1</Leave_id>
+ 	<Leave_date>2021-10-24</Leave_date>
+ 	<Leave_desc>Pending</Leave_desc>
+ 	</Leave>
+ 	<Leave>
+ 	<Leave_id>2</Leave_id>
+ 	<Leave_date>2021-09-14</Leave_date>
+ 	<Leave_desc>Approved</Leave_desc>
+ 	</Leave>
+ 	<Leave>
+ 	<Leave_id>1</Leave_id>
+ 	<Leave_date>2021-07-09</Leave_date>
+ 	<Leave_desc>Pending</Leave_desc>
+ 	</Leave>
+ 	
+</Railway>
