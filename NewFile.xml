@@ -26,6 +26,7 @@ xsi:noNamespaceSchemaLocation="NewXMLSchema.xsd">
     <Salary>46000</Salary>
     <Station>Mumbai</Station>
  	</Employee>
+  
  
  	<Train>
  	<Train_no>213473</Train_no>
