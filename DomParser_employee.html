@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+  
+<head>
+    <title>Reads the XML data using JavaScript</title>
+  
+    <!-- CSS -->
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+  
+        th,
+        td {
+            text-align: left;
+            padding: 8px;
+        }
+  
+       
+  
+        .button {
+            position: relative;
+            text-align: center;
+            padding: 20px;
+            background: rgba(209, 35, 108, 0.5);
+            color: rgb(22, 13, 15);
+            outline: none;
+            border-radius: 30px;
+            font-size: 10px;
+            width: 200px;
+  
+        }
+  
+        .button:hover {
+            color: black;
+            background: white;
+        }
+    </style>
+  
+    <!--JavaScript-->
+    <script>
+        function loadXMLDoc() {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function () {
+  
+                // Request finished and response 
+                // is ready and Status is "OK"
+                if (this.readyState == 4 && this.status == 200) {
+                    empDetails(this);
+                }
+            };
+  
+            // employee.xml is the external xml file
+            xmlhttp.open("GET", "NewFile.xml", true);
+            xmlhttp.send();
+        }
+  
+        function empDetails(xml) {
+            var i;
+            var xmlDoc = xml.responseXML;
+            var table =
+                `<tr><th>Name</th><th>Age</th>
+                    <th>Salary</th><th>Station</th>
+                </tr>`;
+                
+            var x = xmlDoc.getElementsByTagName("Employee");
+            table += "<caption><b><u>EMPLOYEE</u></b></caption>";
+  
+            // Start to fetch the data by using TagName 
+            for (i = 0; i < x.length; i++) {
+                table += "<tr><td>" +
+                    x[i].getElementsByTagName("Name")[0]
+                    .childNodes[0].nodeValue + "</td><td>" +
+                    x[i].getElementsByTagName("Age")[0]
+                    .childNodes[0].nodeValue + "</td><td>" +
+                    x[i].getElementsByTagName("Salary")[0]
+                    .childNodes[0].nodeValue + "</td><td>" +
+                    x[i].getElementsByTagName("Station")[0]
+                    .childNodes[0].nodeValue + "</td><td></tr>";
+            }
+  
+            // Print the xml data in table form
+            document.getElementById("id").innerHTML = table;
+        }
+    </script>
+</head>
+  
+<body>
+    <h1><u><center>EMPLOYEE DETAILS</center></u></h1>
+    <br>
+    <center>
+        <button type="button" class="button" 
+            onclick="loadXMLDoc()">
+            Click here for Employees Details
+        </button>
+    </center>
+      
+    <br><br>
+    
+    <table id="id" border="2"></table>
+</body>
+  
+</html>

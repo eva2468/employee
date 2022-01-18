@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        
+       
+  
+        .button {
+            position: relative;
+            text-align: center;
+            padding: 4px;
+            border: 4px solid rgb(55, 12, 211);
+            background: rgba(44, 218, 21, 0.5);
+            color: rgb(24, 22, 23);
+            outline: none;
+            border-radius: 5px;
+            font-size: 10px;
+            width: 200px;
+  
+        }
+  
+        .button:hover {
+            color: black;
+            background: white;
+        }
+    </style>
+
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee</title>
+    <script>
+        function loadXMLDoc(xname)
+        {
+            if(window.XMLHttpRequest)
+            {
+                xhttp=new XMLHttpRequest();
+            }
+            else{
+                xhttp=new ActiveXObject("Microsoft.XMLHTTP")
+            }
+            xhttp.open("GET",xname,false);
+            xhttp.send();
+           return  xhttp.responseXML;
+        }
+        function remove(node)
+        {
+           xmlDoc= loadXMLDoc('NewFile.xml');
+           y=xmlDoc.getElementsByTagName(node)[0];
+           xmlDoc.documentElement.removeChild(y);
+           alert('The Element ' +node+ ' has been removed!');
+        }
+        function show(element)
+        {
+            x=xmlDoc.getElementsByTagName(element);
+            for(i=0;i<x.length;i++)
+            {
+                document.write(x[i].childNodes[0].nodeValue);
+                document.write("<br\>");
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1><center><u>STATION MANIPULATION</u></center></h1>
+    <br>
+    <input type="button"  class="button" value="Remove" onclick="remove('Employee')"/>
+    <input type="button" value="Show" class="button"  onclick="show('Station')"/>
+</body>
+</html>
