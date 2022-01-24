@@ -2,6 +2,32 @@
 <html lang="en">
 
 <head>
+  <script type="text/javascript">
+    function disable()
+    {
+     document.onkeydown = function (e) 
+     {
+       
+      
+      if (e.which >= 48 && e.which <= 57) {
+      return false;
+      }
+     }
+    }
+    function enable()
+    {
+     document.onkeydown = function (e) 
+     {
+       
+      
+      
+      return true;
+      
+     }
+    }
+    
+    </script>
+
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
@@ -47,12 +73,7 @@
           <div class="row justify-content-center">
             <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
 
-              <div class="d-flex justify-content-center py-4">
-                <a href="index.html" class="logo d-flex align-items-center w-auto">
-                  <img src="assets/img/logo.png" alt="">
-                  <span class="d-none d-lg-block">REGISTER</span>
-                </a>
-              </div><!-- End Logo -->
+              <!-- End Logo -->
 
               <div class="card mb-3">
 
@@ -63,17 +84,22 @@
                     <p class="text-center small">Enter your personal details to create account</p>
                   </div>
 
-                  <form class="row g-3 needs-validation" novalidate>
+                  <form class="row g-3 needs-validation" onsubmit="validate()">
                     <div class="col-12">
                       <label for="yourName" class="form-label">Your Name</label>
-                      <input type="text" name="name" class="form-control" id="yourName" required>
+                      <input type="text" oninput="disable()" name="name" class="form-control" id="yourName" required>
                       <div class="invalid-feedback">Please, enter your name!</div>
                     </div>
 
                     <div class="col-12">
                       <label for="yourEmail" class="form-label">Your Email</label>
-                      <input type="email" name="email" class="form-control" id="yourEmail" required>
+                      <input type="email" name="email"  onclick="enable()" class="form-control" id="yourEmail" required>
                       <div class="invalid-feedback">Please enter a valid Email adddress!</div>
+                    </div>
+                    <div class="col-12">
+                      <label for="yourNO" class="form-label">Your Mobile NO</label>
+                      <input type="text" name="name" class="form-control" id="yourName" required>
+                      <div class="invalid-feedback">Please, enter your Mobile NO!</div>
                     </div>
 
                     <div class="col-12">
@@ -90,6 +116,13 @@
                       <input type="password" name="password" class="form-control" id="yourPassword" required>
                       <div class="invalid-feedback">Please enter your password!</div>
                     </div>
+                    
+                   <!--  <div class="col-12">
+                      <label for="yourName" class="form-label">Your Name</label>
+                      <input type="text" name="name" class="form-control" id="yourName" required>
+                      <div class="invalid-feedback">Please, enter your name!</div>
+                    </div>
+                    -->
 
                     <div class="col-12">
                       <div class="form-check">
@@ -104,6 +137,9 @@
                     <div class="col-12">
                       <p class="small mb-0">Already have an account? <a href="pages-login.html">Log in</a></p>
                     </div>
+                    
+
+
                   </form>
 
                 </div>
@@ -121,6 +157,7 @@
   <!-- Vendor JS Files -->
   <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="validate.js"></script>
   <script src="assets/vendor/chart.js/chart.min.js"></script>
   <script src="assets/vendor/echarts/echarts.min.js"></script>
   <script src="assets/vendor/quill/quill.min.js"></script>
