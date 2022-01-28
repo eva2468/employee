@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        section
+        {
+            width: 500px;
+            height: 300px;
+            margin: 100px auto;
+        }
+        div{
+            width: 100%;
+            margin: 15px auto;
+        }
+        label{
+            display: block;
+            padding:20px;
+            font-size: 25px;
+            color: crimson;
+        }
+        input{
+            width: 80%;
+            padding: 10px;
+            border: 1px red;
+            margin-left: 20px;
+            border-radius: 3px;
+        }
+        span
+        {
+            display: block;
+            margin-left: 20px;
+            color: red;
+            font-style: italic;
+        }
+        button{
+            width: 20%;
+            padding: 10px;
+            border: 1px red;
+            margin-left: 20px;
+            border-radius: 3px;
+
+
+        }
+        
+body {
+  font-family: "Open Sans", sans-serif;
+  background-image: url("assets/css/2.jpg");
+  background-size: cover;
+  color: #444444;
+}
+fieldset{
+    background-color: cadetblue;
+}
+</style>
+
+<script>
+    var email=document.getElementById('email');
+    var number=document.getElementById('number');
+    var span=document.getElementsByTagName('span');
+    var p = document.getElementById('password');
+
+    function disable()
+    {
+     document.onkeydown = function (e) 
+     {
+       
+      
+      if (e.which >= 48 && e.which <= 57) {
+      return false;
+      }
+     }
+    }
+    
+    function enable()
+    {
+     document.onkeydown = function (e) 
+     {
+      return true;
+      
+     }
+    }
+    
+
+    function disable_char()
+    {
+
+     document.onkeydown = function (e) 
+     {
+       
+      
+      if (e.which >= 65 && e.which <= 90) {
+      return false;
+      }
+     }
+    }
+
+
+    email.onkeydown=function()
+    {
+       const regex1=/^([a-z0-9\.-]+)@([a-z0-9]+)\.([a-z]{1,8})$/;
+       const regex2= /^([a-z0-9\.-]+)@([a-z0-9]+)\.([a-z]{1,8})(.[a-z]{1,8})$/;
+       if(regex1.test(email.value)||regex2.test(email.value))
+       {
+         span[2].innerText="Your Email is Valid";
+         span[2].style.color="green";  
+       }
+       else{
+           span[2].innerText="Invalid Email Id";
+           span[2].style.color="red";
+       }
+    }
+       number.onkeydown=function()
+       {
+          const regnum=/^[0-9]{9}$/;
+          if(regnum.test(number.value))
+       {
+         span[1].innerText="Your Number is Valid";
+         span[1].style.color="green";  
+       }
+       else{
+           span[1].innerText="Invalid Phone Number";
+           span[1].style.color="red";
+       }   
+       }
+
+       p.onkeydown=function() {
+        const pass =/(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])\S{8,}/;
+         if(pass.test(p.value))
+       {
+
+         span[4].innerText="Valid password";
+         span[4].style.color="green";  
+       }
+       else{
+        span[4].innerText="Invalid password";
+        span[4].style.color="red"; 
+
+       }
+
+				
+    }
+   
+</script>
+</head>
+<body >
+   <section>
+    <fieldset>
+        <div>
+        <form action="">
+         <div>
+             <label for="name">Name</label>
+             <input type="text" oninput="disable()" id="name" placeholder="YOUR NAME">
+             <span></span>
+         </div>
+            
+            <div>
+             <label for="number">Phone-Number</label>
+             <input type="integer"  onclick="enable()" oninput="disable_char()" id="number" placeholder="Phone-Number">
+             <span></span>
+         </div>
+         <div>
+             <label for="email">Email</label>
+             <input type="email" onclick="enable()" id="email" placeholder="Email-id">
+             <span></span>
+         </div>
+         <div>
+             <label for="uname">USERNAME</label>
+             <input type="text" id="uname" placeholder="USERNAME">
+             <span></span>
+         </div>
+         <div>
+             <label for="password">PASSWORD</label>
+             <input type="password" id="password" placeholder="PASSWORD">
+             <span></span>
+         </div>
+         <br>
+         <div>
+             <input type="submit"  class="button"  id="sub">
+         </div>
+        </form>
+        </div>
+     </fieldset>
+   </section> 
+</body>
+</html>
