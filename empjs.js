@@ -1,21 +1,23 @@
 var sample=angular.module("sample", []);
 sample.controller("myctrl", function($scope, $http)
 {
-    $http.get('emp.json')
+    $http.get('http://127.0.0.1:5200/user')
     .success(function(response)
     {
         $scope.entry=response.data;
         $scope.limit=6;
     });
+    
 });
 
-
-/*var sample2=angular.module("sample2", []);
-sample2.controller("ctrl", function($scope, $http)
-{
-    $http.get('data.json')
-    .success(function(response)
+sample.filter("Age", function () { return function (Age) {
+    if(Age<35)
     {
-        $scope.entry=response.data2;
-    });
-});*/
+        return "junior";
+    }
+    else{
+        return "senior";
+    }
+    }});
+
+
